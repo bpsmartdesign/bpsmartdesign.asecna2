@@ -1,0 +1,5 @@
+*.sqlite
+*.sqlite-journal
+*.vscode
+node_modules
+vendor
