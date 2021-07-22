@@ -105,12 +105,29 @@ class PagesController extends Controller
     $page_title = 'Dossier de Vol';
     $user = Auth::user();
     $abb = '';
+    $decoded = '';
 
     foreach (explode(' ', $user->name) as $name)
       $abb .= $name[0];
 
-    // dd($abb);
+    $uri = 'api.openweathermap.org/data/2.5/weather?q=Yaoundé&APPID=ea51d48e281dbed0f3b419c9808ce9ab';
+    $ch = curl_init();
+
+    curl_setopt($ch, CURLOPT_URL, $uri);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Accept: application/json','X-AUTH-TOKEN: MON_TOKEN'));
+    curl_setopt($ch, CURLOPT_HEADER, false);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+    $data = curl_exec($ch);
+
+    if ($data !== false)
+	    $status = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
     
-    return view('pages.dossier_vol', compact('page_title', 'user', 'user', 'abb'));
+    curl_close($ch);
+
+    if ($data !== false && $status === 200)
+      $decoded = json_decode($data);
+
+    return view('pages.dossier_meteo', compact('page_title', 'user', 'user', 'abb', 'decoded'));
   }
 }
