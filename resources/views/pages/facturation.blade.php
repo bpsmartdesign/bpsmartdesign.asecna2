@@ -20,8 +20,7 @@
                             </a>
                             <!--end::Logo-->
                             <span class="text-white d-flex flex-column align-items-md-end opacity-70">
-                                <span>Yaoundé Nsimalen, 4898-FAI RENT-A-JET, AKTIENGESELLSCHAF</span>
-                                <span>CAMEROUN IFA0802</span>
+                                <span>Yaoundé Nsimalen</span>
                             </span>
                         </div>
                     </div>
@@ -29,7 +28,7 @@
                     <div class="d-flex justify-content-between text-white pt-6">
                         <div class="d-flex flex-column flex-root">
                             <span class="font-weight-bolde mb-2r">DATE</span>
-                            <span class="opacity-70">05 Juillet, 2021</span>
+                            <span class="opacity-70">31 Juillet, 2021</span>
                         </div>
                         <div class="d-flex flex-column flex-root">
                             <span class="font-weight-bolder mb-2">N° Facture.</span>
@@ -37,8 +36,7 @@
                         </div>
                         <div class="d-flex flex-column flex-root">
                             <span class="font-weight-bolder mb-2">DOIT a.</span>
-                            <span class="opacity-70">Yaoundé Nsimalen, 4898-FAI RENT-A-JET, AKTIENGESELLSCHAF.<br />L2J
-                                CHALLENGER CL600</span>
+                            <span class="opacity-70">Yaoundé Nsimalen</span>
                         </div>
                     </div>
                 </div>
@@ -60,6 +58,12 @@
                             </thead>
                             <tbody>
                                 <tr class="font-weight-boldest font-size-lg">
+                                    <td class="pl-0 pt-7">Redevance de route</td>
+                                    <td class="text-right pt-7">1</td>
+                                    <td class="text-right pt-7">287675.47</td>
+                                    <td class="text-danger pr-0 pt-7 text-right">287 675.47</td>
+                                </tr>
+                                <tr class="font-weight-boldest font-size-lg">
                                     <td class="pl-0 pt-7">
                                       Atterissage/Langing <br> Balisage/Runway light <br><br>
                                       Stationement/Runway light <br> Passagers/Passengers <br><br>
@@ -67,7 +71,7 @@
                                       FRET/Freight <br><br>
                                     </td>
                                     <td class="text-right pt-7">1</td>
-                                    <td class="text-right pt-7">22.066</td>
+                                    <td class="text-right pt-7">1 300</td>
                                     <td class="text-danger pr-0 pt-7 text-right">22.066</td>
                                 </tr>
                             </tbody>
@@ -86,7 +90,7 @@
 
                             <div class="d-flex justify-content-between mb-3">
                                 <span class="mr-15 font-weight-bold">Date:</span>
-                                <span class="text-right">05.07.2021</span></span>
+                                <span class="text-right">31.07.2021</span></span>
                             </div>
 
                             <div class="d-flex justify-content-between mb-3">
@@ -101,7 +105,7 @@
                         </div>
                         <div class="d-flex flex-column text-md-right">
                             <span class="font-size-lg font-weight-bolder mb-1">MONTANT TOTAL</span>
-                            <span class="font-size-h2 font-weight-boldest text-danger mb-1">22.066.00 XAF</span>
+                            <span class="font-size-h2 font-weight-boldest text-danger mb-1">288 975.47 XAF</span>
                             <span>Taxes Comprise</span>
                         </div>
                     </div>
@@ -114,15 +118,20 @@
             <div class="row justify-content-center py-8 px-8 py-md-10 px-md-0">
                 <div class="col-md-9">
                     <div class="d-flex justify-content-between">
-                        <button type="button" class="btn btn-light-primary font-weight-bold"
-                            onclick="window.print();">Télécharger</button>
-                        <button type="button" class="btn btn-primary font-weight-bold" onclick="window.print();">Imprimer</button>
+                        <button type="button" class="btn btn-light-primary font-weight-bold"onclick="window.print();">Télécharger</button>
                     </div>
                 </div>
             </div>
             <!-- end: Invoice action-->
 
             <!-- end: Invoice-->
+        </div>
+
+    </div>
+    <div class="row links_container">
+        
+        <div class="links mt-10 ml-5">
+            <div id="paypal-button"></div>
         </div>
     </div>
 
@@ -141,4 +150,45 @@
         });
     </script>
     <script src="{{ asset('js/pages/crud/ktdatatable/base/html-table.js') }}" type="text/javascript"></script>
+    
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    <script>
+    paypal.Button.render({
+        env: 'sandbox', // Or 'production'
+        style: {
+        size: 'large',
+        color: 'gold',
+        shape: 'pill',
+        },
+        local:'en_us',
+        client:{
+            sandbox:'AXQucGaFlxZn156Gp_jiBv8aOIfYeSo757MfR-fSBNkgRbVePOUdUvypt8r6FdRmLfxyiyt_w5_3fp3m',
+            production:'demo_production_client_id'
+        },
+        // Set up the payment:
+        // 1. Add a payment callback
+        payment: function(data, actions) {
+        // 2. Make a request to your server
+            return actions.payment.create({
+                transactions: [{
+                    amount:{
+                        total:'0.01',
+                        currency:'USD'
+                    }
+                }]
+            })
+        },
+        // Execute the payment:
+        // 1. Add an onAuthorize callback
+        onAuthorize: function(data, actions) {
+        // 2. Make a request to your server
+        return actions.payment.execute().then(function(details){
+            window.alert('Thank ypu for your purchase')
+            console.log(data)
+            console.log(details.cart);
+            
+        })
+        }
+    }, '#paypal-button');
+    </script>
 @endsection

@@ -271,6 +271,7 @@ return [
       'plugins/custom/prismjs/prismjs.bundle.css',
       'css/style.bundle.css',
       'css/login-4.css',
+      'css/main.css',
     ],
     'js' => [
       'plugins/global/plugins.bundle.js',

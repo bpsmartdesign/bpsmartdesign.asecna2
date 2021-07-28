@@ -7,37 +7,23 @@
     {{-- Dashboard 1 --}}
 
     <div class="row">
+        <div class="col-lg-12">
+            <p class="text-bold text-inverse-dark-25 font-size-h5">AGENCE POUR LA SÉCURITÉ DE LA NAVIGATION AÉRIENNE EN AFRIQUE ET A MADAGASCAR</p>
+        </div>
         <div class="col-lg-6 col-xxl-4">
-            @include('pages.widgets._widget-1', ['class' => 'card-stretch gutter-b'])
+            <div class="row justify-content-center bgi-size-cover bgi-no-repeat py-8 px-8 py-md-27 px-md-0 lg_img m-auto card card-custom" style="background-image: url({{ asset('media/bg/1.jpeg') }});"></div>
         </div>
 
         <div class="col-lg-6 col-xxl-4">
-            @include('pages.widgets._widget-2', ['class' => 'card-stretch gutter-b'])
+            <div class="row justify-content-center bgi-size-cover bgi-no-repeat py-8 px-8 py-md-27 px-md-0 lg_img m-auto card card-custom" style="background-image: url({{ asset('media/bg/2.jpeg') }});"></div>
         </div>
 
         <div class="col-lg-6 col-xxl-4">
-            @include('pages.widgets._widget-3', ['class' => 'card-stretch card-stretch-half gutter-b'])
-            @include('pages.widgets._widget-4', ['class' => 'card-stretch card-stretch-half gutter-b'])
+            <div class="row justify-content-center bgi-size-cover bgi-no-repeat py-8 px-8 py-md-27 px-md-0 sm_img card card-custom" style="background-image: url({{ asset('media/bg/3.jpeg') }});"></div>
+            <div class="row justify-content-center bgi-size-cover bgi-no-repeat py-8 px-8 py-md-27 px-md-0 sm_img mt-10 card card-custom" style="background-image: url({{ asset('media/bg/4.jpeg') }});"></div>
         </div>
-
-        <div class="col-lg-6 col-xxl-4 order-1 order-xxl-1">
-            @include('pages.widgets._widget-5', ['class' => 'card-stretch gutter-b'])
-        </div>
-
-        <div class="col-xxl-8 order-2 order-xxl-1">
-            @include('pages.widgets._widget-6', ['class' => 'card-stretch gutter-b'])
-        </div>
-
-        <div class="col-lg-6 col-xxl-4 order-1 order-xxl-2">
-            @include('pages.widgets._widget-7', ['class' => 'card-stretch gutter-b'])
-        </div>
-
-        <div class="col-lg-6 col-xxl-4 order-1 order-xxl-2">
-            @include('pages.widgets._widget-8', ['class' => 'card-stretch gutter-b'])
-        </div>
-
-        <div class="col-lg-12 col-xxl-4 order-1 order-xxl-2">
-            @include('pages.widgets._widget-9', ['class' => 'card-stretch gutter-b'])
+        <div class="col-lg-12 mt-5">
+            <a href="https://asecnaonline.asecna.aero/index.php/fr/" target="blank" class="font-italic">En savoir plus ...</a>
         </div>
     </div>
 

@@ -1,0 +1,13 @@
+.lg_img {
+  height: 450px;
+}
+
+.sm_img {
+  height: 208px;
+}
+
+.links_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
