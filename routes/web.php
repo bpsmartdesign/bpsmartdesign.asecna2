@@ -11,6 +11,7 @@ Route::get('/', 'PagesController@index');
 Route::get('/profil', 'PagesController@profil');
 Route::get('/user', 'PagesController@user');
 Route::get('/plan-de-vol', 'PagesController@plan_vol');
+Route::post('/plan-de-vol', 'PagesController@add_plan_vol')->name('add_plan_vol');
 Route::get('/facturation', 'PagesController@facturation');
 Route::get('/bip', 'PagesController@bip');
 Route::get('/dossier-meteo', 'PagesController@dossier_meteo');

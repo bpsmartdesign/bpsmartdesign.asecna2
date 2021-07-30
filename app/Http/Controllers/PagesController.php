@@ -148,4 +148,8 @@ class PagesController extends Controller
 
     return view('pages.dossier_meteo', compact('page_title', 'user', 'user', 'abb', 'decoded'));
   }
+
+  public function add_plan_vol(Request $request) {
+    return redirect()->back()->with('success', 'Le Plan de vol a été enrégistré avec succsès');
+  }
 }

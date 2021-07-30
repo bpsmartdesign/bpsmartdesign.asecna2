@@ -175,7 +175,7 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form class="form" method="POST" action="#">
+                    <form class="form" method="POST" action="{{ route('add_plan_vol') }}">
                         @csrf
                         <div class="card-body">
                             <div class="row" style="margin: 0">
